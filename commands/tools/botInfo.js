@@ -12,7 +12,7 @@ module.exports = {
         const creationDate = `<t:${Math.floor(client.user.createdTimestamp / 1000)}:D>`
         const memberAvatar = `${member.displayAvatarURL({ dynamic: true })}`
         const embed = new EmbedBuilder()
-            .setDescription(`<:emoji_dot:1044083172784218132>**Bot Name:** ${member.displayName} \n<:emoji_dot:1044083172784218132>**Bot Ping:** ${client.ws.ping}ms \n<:emoji_dot:1044083172784218132>**Language:** JavaScript \n<:emoji_dot:1044083172784218132>**Joined at:** ${joinedDate} \n<:emoji_dot:1044083172784218132>**Created at:** ${creationDate} \n<:emoji_dot:1044083172784218132>**Source Code:** [GitHub](https://github.com/jairusudanieru/landdroid)`)
+            .setDescription(`<:emoji_dot:1044083172784218132>**Bot Name:** ${member.displayName} \n<:emoji_dot:1044083172784218132>**Bot Ping:** ${client.ws.ping}ms \n<:emoji_dot:1044083172784218132>**Language:** JavaScript \n<:emoji_dot:1044083172784218132>**Joined at:** ${joinedDate} \n<:emoji_dot:1044083172784218132>**Created at:** ${creationDate} \n<:emoji_dot:1044083172784218132>**Source Code:** [GitHub](https://github.com/jairusudanieru/LandDroidBot)`)
             .setThumbnail(memberAvatar)
             .setColor(`#2a2c31`);
 
