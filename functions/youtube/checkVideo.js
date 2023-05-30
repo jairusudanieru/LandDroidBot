@@ -16,7 +16,6 @@ module.exports = (client) => {
         const data = await parser
             .parseURL(`https://youtube.com/feeds/videos.xml?channel_id=UC8VdFEhDbqv0ZeWGz5tmV_g`)
             .catch(console.error);
-
         const rawData = fs.readFileSync(`${__dirname}/../../jsonFiles/youtube.json`);
         const jsonData = JSON.parse(rawData);
 
@@ -35,7 +34,6 @@ module.exports = (client) => {
                 .setDescription(`<:emoji_contents:1005004303121010749> **New Video: [${title}](${link})**`)
                 .setThumbnail(`https://img.youtube.com/vi/${id.slice(9)}/maxresdefault.jpg`)
                 .setColor("#2f3136");
-
             const row = new ActionRowBuilder().addComponents(
                 new ButtonBuilder()
                     .setLabel("Watch Video")
@@ -44,13 +42,9 @@ module.exports = (client) => {
                     .setURL(link)
             );
 
-            await channel
-                .send({
-                    content: `Hey <@&${contentPingRoleId}>, Jairusu Uploaded a New Video!\n${link}`,
-                    /*embeds: [embed],
-                    components: [row],*/
-                })
-                .catch(console.error);
+            await channel.send({
+                content: `Hey <@&${contentPingRoleId}>, Jairusu Uploaded a New Video!\n${link}`,
+            }).catch(console.error);
         }
     };
 };
