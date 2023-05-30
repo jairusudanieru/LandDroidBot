@@ -1,5 +1,4 @@
 const { PermissionFlagsBits } = require("discord.js");
-const { verifiedRoleId } = require("../../jsonFiles/config.json");
 const buttonCooldown = new Set();
 
 module.exports = {
@@ -16,8 +15,8 @@ module.exports = {
                 ephemeral: true,
             });
         } else {
-            if (interaction.channel.permissionsFor(verifiedRoleId).has(PermissionFlagsBits.ViewChannel)) {
-                await interaction.channel.permissionOverwrites.edit(verifiedRoleId, {
+            if (interaction.channel.permissionsFor(interaction.guild.id).has(PermissionFlagsBits.ViewChannel)) {
+                await interaction.channel.permissionOverwrites.edit(interaction.guild.id, {
                     ViewChannel: false,
                     SendMessages: true,
                     EmbedLinks: true,
@@ -37,7 +36,7 @@ module.exports = {
                     },
                 })
             } else {
-                await interaction.channel.permissionOverwrites.edit(verifiedRoleId, {
+                await interaction.channel.permissionOverwrites.edit(interaction.guild.id, {
                     ViewChannel: true,
                 })
                 await interaction.reply({
