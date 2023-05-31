@@ -12,7 +12,6 @@ module.exports = {
             status: 'online'
         });
         console.log(`Ready! logged in as ${client.user.tag}`)
-
         setTimeout(client.checkVideo, 60 * 1000);
     }
 }
