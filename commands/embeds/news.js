@@ -1,7 +1,4 @@
 const {
-   ActionRowBuilder,
-   ButtonBuilder,
-   ButtonStyle,
    EmbedBuilder,
    PermissionFlagsBits,
    SlashCommandBuilder,
@@ -30,7 +27,6 @@ module.exports = {
       var description = interaction.options.getString('description');
       description = description.replaceAll("\\n", "\n");
       const image = interaction.options.getAttachment('image');
-
       const embed = new EmbedBuilder()
          .setDescription(`<:emoji_dot:1044083172784218132>**${title}** \n${description}`)
          .setImage(image.url)

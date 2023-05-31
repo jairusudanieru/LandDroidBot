@@ -22,7 +22,6 @@ module.exports = {
 		const embed2 = new EmbedBuilder()
 			.setDescription(`<:emoji_dot:1044083172784218132>**Welcome to Jairusu's Official Discord Server!** \nThank you so much for joining. This server is completely based around Jairusu to allow his followers and friends to communicate with each other. \n\n<:emoji_dot:1044083172784218132>**Server Information** \n<:reply_continue_1:1005018627797434449> Owned by: <@${ownerId}> \n<:reply_continue_3:1005018623716372520> Release Date: ${creationDate}`)
 			.setColor(`#2a2c31`);
-
 		const row = new ActionRowBuilder().addComponents(
 			new ButtonBuilder()
 				.setCustomId("rules")
