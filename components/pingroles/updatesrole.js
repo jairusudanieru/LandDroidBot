@@ -9,8 +9,8 @@ module.exports = {
         const haveSMPRole = interaction.member.roles.cache.has(smpRoleId);
 
         if (!haveUpdatesRole && haveSMPRole) {
-            interaction.member.roles.add(updatesRoleId);
-            interaction.reply({
+            await interaction.member.roles.add(updatesRoleId);
+            await interaction.reply({
                 content: `Gave you the <@&${updatesRoleId}> role!`,
                 ephemeral: true,
                 allowedMentions: {
@@ -19,8 +19,8 @@ module.exports = {
 
             });
         } else if (haveUpdatesRole && haveSMPRole) {
-            interaction.member.roles.remove(updatesRoleId);
-            interaction.reply({
+            await interaction.member.roles.remove(updatesRoleId);
+            await interaction.reply({
                 content: `Removed the <@&${updatesRoleId}> role from you!`,
                 ephemeral: true,
                 allowedMentions: {
@@ -28,7 +28,7 @@ module.exports = {
                 },
             });
         } else {
-            interaction.reply({
+            await interaction.reply({
                 content: `You need to have the <@&${smpRoleId}>`,
                 ephemeral: true,
                 allowedMentions: {
