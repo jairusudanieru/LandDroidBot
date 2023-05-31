@@ -13,11 +13,11 @@ module.exports = {
         name: "ticketquestion",
     },
     async execute(interaction) {
+        const usermember = await interaction.guild.members.fetch(interaction.user.id);
         const embed = new EmbedBuilder()
-            .setDescription(`**Ticket Created!**\nPlease provide some details while waiting for response. Thank you!`)
+            .setDescription(`<:emoji_dot:1044083172784218132>**Ticket Created!**\nPlease provide some details while waiting for response. Thank you!`)
             .setColor("#b9babf")
             .setFooter({ text: `Category: Ask Questions` });
-
         const row = new ActionRowBuilder().setComponents(
             new ButtonBuilder()
                 .setCustomId("ticketclose")
@@ -25,13 +25,11 @@ module.exports = {
                 .setEmoji("<:emoji_logout:1011132089774657587>")
                 .setStyle(ButtonStyle.Secondary),
             new ButtonBuilder()
-                .setCustomId("ticketdelete")
+                .setCustomId("ticketconfirm")
                 .setLabel("Delete Ticket")
                 .setEmoji("<:emoji_trash:1010906896762408970>")
                 .setStyle(ButtonStyle.Secondary)
         );
-
-        const usermember = await interaction.guild.members.fetch(interaction.user.id)
 
         try {
             const channel = await interaction.guild.channels.create({

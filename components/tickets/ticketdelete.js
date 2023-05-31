@@ -7,28 +7,28 @@ module.exports = {
     },
     async execute(interaction, client) {
         const channel = client.channels.cache.get(deletedTicketChannel);
-        const ticket = interaction.channel;
+        const haveModRole = interaction.member.roles.cache.has(modRoleId);
         const embed = new EmbedBuilder()
             .setDescription(`<@${interaction.user.id}> deleted the \`#${interaction.channel.name}\` channel.`)
             .setColor("#b9babf");
-        const haveModRole = interaction.member.roles.cache.has(modRoleId);
+
+        if (!haveModRole) {
+            await interaction.reply({
+                content: "Sorry, only moderators can delete tickets!",
+                ephemeral: true
+            });
+            return;
+        }
 
         try {
-            if (haveModRole) {
-                await interaction.reply({
-                    content: `Deleting Ticket in a few seconds.`,
-                    ephemeral: true,
-                });
-                await channel.send({
-                    embeds: [embed],
-                });
-                await ticket.delete();
-            } else {
-                await interaction.reply({
-                    content: "Sorry, only Moderators can Delete Tickets!",
-                    ephemeral: true
-                });
-            }
+            await interaction.reply({
+                content: `Deleting Ticket in a few seconds.`,
+                ephemeral: true,
+            });
+            await channel.send({
+                embeds: [embed],
+            });
+            await interaction.channel.delete();
         } catch (error) {
             await interaction.reply({
                 content: "Something went wrong! Please report this to Developers.",
