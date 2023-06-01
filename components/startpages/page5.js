@@ -14,7 +14,7 @@ module.exports = {
       .setImage("https://cdn.discordapp.com/attachments/1012234151769931817/1112753367295467570/hooray.png")
       .setColor(`#2a2c31`);
     const embed2 = new EmbedBuilder()
-      .setDescription("<:emoji_dot:1044083172784218132>**Hooray... you made it!** \nAgain, welcome to the server! How about sending a message in <#923053506410209381> and introduce yourself?")
+      .setDescription("<:emoji_dot:1044083172784218132>**Hooray... you made it!** \nAgain, welcome to the server! How about sending a message in <#1112649025498390578> and introduce yourself?")
       .setColor(`#2a2c31`);
 
     const row = new ActionRowBuilder().setComponents(

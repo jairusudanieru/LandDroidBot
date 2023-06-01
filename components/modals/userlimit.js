@@ -9,7 +9,7 @@ module.exports = {
   data: {
     name: `userlimit`,
   },
-  async execute(interaction, client) {
+  async execute(interaction) {
     const ans1 = `${interaction.fields.getTextInputValue("1")}`
 
     try {

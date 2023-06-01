@@ -49,7 +49,7 @@ module.exports = {
 			await interaction.deleteReply();
 		} catch (error) {
 			await interaction.reply({
-				content: "Something went wrong! Try Checking the bot's Permission.",
+				content: "Sorry, something went wrong. Please report this to the administrator.",
 				ephemeral: true,
 			});
 		}

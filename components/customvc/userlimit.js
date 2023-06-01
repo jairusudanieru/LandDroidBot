@@ -23,20 +23,26 @@ module.exports = {
             .setStyle(TextInputStyle.Short);
 
         const ar1 = new ActionRowBuilder().addComponents(a1);
-
         modal.addComponents(ar1);
 
-        if (buttonCooldown.has(interaction.user.id)) {
+        try {
+            if (buttonCooldown.has(interaction.user.id)) {
+                await interaction.reply({
+                    content: "Please wait 10 seconds before using this button again.",
+                    ephemeral: true,
+                });
+            } else {
+                await interaction.showModal(modal);
+                buttonCooldown.add(interaction.user.id);
+                setTimeout(() => {
+                    buttonCooldown.delete(interaction.user.id);
+                }, 10000);
+            }
+        } catch (error) {
             await interaction.reply({
-                content: "Please wait 10 seconds before using this button again.",
+                content: "Sorry, something went wrong. Please report this to the administrator.",
                 ephemeral: true,
             });
-        } else {
-            await interaction.showModal(modal);
-            buttonCooldown.add(interaction.user.id);
-            setTimeout(() => {
-                buttonCooldown.delete(interaction.user.id);
-            }, 10000);
         }
     },
 };  

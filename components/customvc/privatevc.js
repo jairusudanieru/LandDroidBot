@@ -9,47 +9,54 @@ module.exports = {
         const channel = await interaction.guild.channels.fetch(interaction.member.voice.channelId);
         const members = [...channel.members].map((player) => player[1].user.id);
 
-        if (buttonCooldown.has(interaction.user.id)) {
+        try {
+            if (buttonCooldown.has(interaction.user.id)) {
+                await interaction.reply({
+                    content: "Please wait 1 minute before using this button again.",
+                    ephemeral: true,
+                });
+            } else {
+                if (interaction.channel.permissionsFor(interaction.guild.id).has(PermissionFlagsBits.ViewChannel)) {
+                    await interaction.channel.permissionOverwrites.edit(interaction.guild.id, {
+                        ViewChannel: false,
+                        SendMessages: true,
+                        EmbedLinks: true,
+                        AttachFiles: true,
+                        AddReactions: true,
+                        UseExternalEmojis: true,
+                        ReadMessageHistory: true,
+                        Connect: true,
+                        Speak: true,
+                        Stream: true,
+                        UseVAD: true,
+                    })
+                    await interaction.reply({
+                        content: `<@${interaction.user.id}> sets the Channel Visibility to: Private`,
+                        allowedMentions: {
+                            parse: [],
+                        },
+                    })
+                } else {
+                    await interaction.channel.permissionOverwrites.edit(interaction.guild.id, {
+                        ViewChannel: true,
+                    })
+                    await interaction.reply({
+                        content: `<@${interaction.user.id}> sets the Channel Visibility to: Visible`,
+                        allowedMentions: {
+                            parse: [],
+                        },
+                    })
+                }
+                buttonCooldown.add(interaction.user.id);
+                setTimeout(() => {
+                    buttonCooldown.delete(interaction.user.id);
+                }, 60000);
+            }
+        } catch (error) {
             await interaction.reply({
-                content: "Please wait 1 minute before using this button again.",
+                content: "Sorry, something went wrong. Please report this to the administrator.",
                 ephemeral: true,
             });
-        } else {
-            if (interaction.channel.permissionsFor(interaction.guild.id).has(PermissionFlagsBits.ViewChannel)) {
-                await interaction.channel.permissionOverwrites.edit(interaction.guild.id, {
-                    ViewChannel: false,
-                    SendMessages: true,
-                    EmbedLinks: true,
-                    AttachFiles: true,
-                    AddReactions: true,
-                    UseExternalEmojis: true,
-                    ReadMessageHistory: true,
-                    Connect: true,
-                    Speak: true,
-                    Stream: true,
-                    UseVAD: true,
-                })
-                await interaction.reply({
-                    content: `<@${interaction.user.id}> sets the Channel Visibility to: Private`,
-                    allowedMentions: {
-                        parse: [],
-                    },
-                })
-            } else {
-                await interaction.channel.permissionOverwrites.edit(interaction.guild.id, {
-                    ViewChannel: true,
-                })
-                await interaction.reply({
-                    content: `<@${interaction.user.id}> sets the Channel Visibility to: Visible`,
-                    allowedMentions: {
-                        parse: [],
-                    },
-                })
-            }
-            buttonCooldown.add(interaction.user.id);
-            setTimeout(() => {
-                buttonCooldown.delete(interaction.user.id);
-            }, 60000);
         }
     },
 };

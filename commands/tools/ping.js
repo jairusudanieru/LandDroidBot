@@ -10,12 +10,10 @@ module.exports = {
         .setDescription("Get the Bot's Ping")
         .setDefaultMemberPermissions(PermissionFlagsBits.UseApplicationCommands),
     async execute(interaction, client) {
-        const ping = `${client.ws.ping}ms`
+        const ping = `${client.ws.ping}ms`;
+        const botAvatar = client.user.displayAvatarURL();
         const embed = new EmbedBuilder()
-            .setAuthor({
-                name: `${client.user.tag}`,
-                iconURL: `${client.user.displayAvatarURL()}`,
-            })
+            .setAuthor({ name: `${client.user.tag}`, iconURL: `${botAvatar}` })
             .setDescription(`<:emoji_dot:1044083172784218132>**Websocket heartbeat:** ${ping}`)
             .setColor(`#2a2c31`);
 
@@ -25,8 +23,8 @@ module.exports = {
             });
         } catch (error) {
             await interaction.reply({
-                content: "Something went wrong! Please report this to Developers.",
-                ephemeral: true
+                content: "Sorry, something went wrong. Please report this to the administrator.",
+                ephemeral: true,
             });
         }
     },

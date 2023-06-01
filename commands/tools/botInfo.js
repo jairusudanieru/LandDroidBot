@@ -7,12 +7,12 @@ module.exports = {
         .setDefaultMemberPermissions(PermissionFlagsBits.UseApplicationCommands)
         .setDMPermission(false),
     async execute(interaction, client) {
-        const member = interaction.guild.members.cache.get(client.user.id);
-        const joinedDate = `<t:${Math.floor(member.joinedTimestamp / 1000)}:D>`
+        const botMember = interaction.guild.members.cache.get(client.user.id);
+        const joinedDate = `<t:${Math.floor(botMember.joinedTimestamp / 1000)}:D>`
         const creationDate = `<t:${Math.floor(client.user.createdTimestamp / 1000)}:D>`
-        const memberAvatar = `${member.displayAvatarURL({ dynamic: true })}`
+        const memberAvatar = `${botMember.displayAvatarURL({ dynamic: true })}`
         const embed = new EmbedBuilder()
-            .setDescription(`<:emoji_dot:1044083172784218132>**Bot Name:** ${member.displayName} \n<:emoji_dot:1044083172784218132>**Bot Ping:** ${client.ws.ping}ms \n<:emoji_dot:1044083172784218132>**Language:** JavaScript \n<:emoji_dot:1044083172784218132>**Joined at:** ${joinedDate} \n<:emoji_dot:1044083172784218132>**Created at:** ${creationDate} \n<:emoji_dot:1044083172784218132>**Source Code:** [GitHub](https://github.com/jairusudanieru/LandDroidBot)`)
+            .setDescription(`<:emoji_dot:1044083172784218132>**Bot Name:** ${botMember.displayName} \n<:emoji_dot:1044083172784218132>**Bot Ping:** ${client.ws.ping}ms \n<:emoji_dot:1044083172784218132>**Language:** JavaScript \n<:emoji_dot:1044083172784218132>**Joined at:** ${joinedDate} \n<:emoji_dot:1044083172784218132>**Created at:** ${creationDate} \n<:emoji_dot:1044083172784218132>**Source Code:** [GitHub](https://github.com/jairusudanieru/LandDroidBot)`)
             .setThumbnail(memberAvatar)
             .setColor(`#2a2c31`);
 
@@ -22,7 +22,7 @@ module.exports = {
             });
         } catch (error) {
             await interaction.reply({
-                content: "Something went wrong! Please report this to Developers.",
+                content: "Sorry, something went wrong. Please report this to the administrator.",
                 ephemeral: true,
             });
         }
