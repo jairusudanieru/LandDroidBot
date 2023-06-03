@@ -4,6 +4,7 @@ const {
     TextInputBuilder,
     TextInputStyle,
 } = require("discord.js");
+const { boosterRoleId } = require("../../jsonFiles/config.json");
 const buttonCooldown = new Set();
 
 module.exports = {
@@ -11,6 +12,10 @@ module.exports = {
         name: "userlimit",
     },
     async execute(interaction) {
+        var cooldown = 30000;
+        const hasBoosterRole = interaction.member.roles.cache.has(boosterRoleId);
+        if (hasBoosterRole) cooldown = 10000;
+        const seconds = cooldown / 1000;
         const modal = new ModalBuilder()
             .setCustomId(`userlimit`)
             .setTitle(`Set Voice Channel User Limit`);
@@ -28,7 +33,7 @@ module.exports = {
         try {
             if (buttonCooldown.has(interaction.user.id)) {
                 await interaction.reply({
-                    content: "Please wait 10 seconds before using this button again.",
+                    content: `Please wait ${seconds} seconds before using this button again.`,
                     ephemeral: true,
                 });
             } else {
@@ -36,7 +41,7 @@ module.exports = {
                 buttonCooldown.add(interaction.user.id);
                 setTimeout(() => {
                     buttonCooldown.delete(interaction.user.id);
-                }, 10000);
+                }, cooldown);
             }
         } catch (error) {
             await interaction.reply({

@@ -1,4 +1,5 @@
 const { PermissionFlagsBits } = require("discord.js");
+const { boosterRoleId } = require("../../jsonFiles/config.json");
 const buttonCooldown = new Set();
 
 module.exports = {
@@ -6,13 +7,23 @@ module.exports = {
         name: "privatevc",
     },
     async execute(interaction) {
-        const channel = await interaction.guild.channels.fetch(interaction.member.voice.channelId);
-        const members = [...channel.members].map((player) => player[1].user.id);
+        var cooldown = 60000;
+        const hasBoosterRole = interaction.member.roles.cache.has(boosterRoleId);
+        if (hasBoosterRole) cooldown = 10000;
+        const seconds = cooldown / 1000;
+        const voiceChannel = interaction.member.voice.channel;
+        if (interaction.channel != voiceChannel) {
+            await interaction.reply({
+                content: "Sorry, you can only do this to your own channel!",
+                ephemeral: true
+            });
+            return;
+        }
 
         try {
             if (buttonCooldown.has(interaction.user.id)) {
                 await interaction.reply({
-                    content: "Please wait 1 minute before using this button again.",
+                    content: `Please wait ${seconds} seconds before using this button again.`,
                     ephemeral: true,
                 });
             } else {
@@ -50,7 +61,7 @@ module.exports = {
                 buttonCooldown.add(interaction.user.id);
                 setTimeout(() => {
                     buttonCooldown.delete(interaction.user.id);
-                }, 60000);
+                }, cooldown);
             }
         } catch (error) {
             await interaction.reply({

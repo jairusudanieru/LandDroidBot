@@ -13,7 +13,7 @@ module.exports = {
 		const joinedDate = `<t:${Math.floor(member.joinedTimestamp / 1000)}:D>`;
 		const creationDate = `<t:${Math.floor(user.createdTimestamp / 1000)}:D>`;
 		const embed = new EmbedBuilder()
-			.setDescription(`<:emoji_dot:1044083172784218132>**Username:** ${user.tag} \n<:emoji_dot:1044083172784218132>**User ID:** ${user.id} \n<:emoji_dot:1044083172784218132>**Joined at:** ${joinedDate} \n<:emoji_dot:1044083172784218132>**Created at:** ${creationDate}`)
+			.setDescription(`<:emoji_dot:1044083172784218132>**Username:** ${user.tag} \n<:emoji_dot:1044083172784218132>**Nickname:** ${member.displayName} \n<:emoji_dot:1044083172784218132>**User ID:** ${user.id} \n<:emoji_dot:1044083172784218132>**Joined at:** ${joinedDate} \n<:emoji_dot:1044083172784218132>**Created at:** ${creationDate}`)
 			.setThumbnail(`${member.displayAvatarURL({ dynamic: true })}`)
 			.setColor(`#2a2c31`);
 
