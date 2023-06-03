@@ -1,11 +1,9 @@
 const {
-    EmbedBuilder,
     PermissionFlagsBits,
     SlashCommandBuilder,
 } = require("discord.js");
 const infoFunction = require("../../commandsFunctions/help/info.js");
 const pingFunction = require("../../commandsFunctions/help/ping.js");
-
 
 module.exports = {
     data: new SlashCommandBuilder()
