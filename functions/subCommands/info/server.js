@@ -5,7 +5,7 @@ module.exports = {
    description: "info command bot subcommand",
    async execute(interaction) {
       const guild = interaction.guild;
-      const guildIcon = `${guild.iconURL({ dynamic: true })}`
+      const guildIcon = guild.iconURL({ dynamic: true });
       const releasedDate = `<t:${Math.floor(guild.createdTimestamp / 1000)}:D>`
       const embed = new EmbedBuilder()
          .setDescription(`<:emoji_dot:1044083172784218132>**Server Name:** ${guild.name} \n<:emoji_dot:1044083172784218132>**Total Members:** ${guild.memberCount} Members \n<:emoji_dot:1044083172784218132>**Nitro Boosts:** ${guild.premiumSubscriptionCount} Boosts \n<:emoji_dot:1044083172784218132>**Server Level:** Level ${guild.premiumTier} \n<:emoji_dot:1044083172784218132>**Date Released:** ${releasedDate}`)

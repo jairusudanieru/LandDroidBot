@@ -4,10 +4,8 @@ module.exports = (client) => {
     client.handleComponents = async () => {
         const componentFolders = readdirSync(`./components`);
         for (const folder of componentFolders) {
-            const componentFiles = readdirSync(`./components/${folder}`).filter(
-                (file) => file.endsWith(".js")
-            );
-
+            const componentFiles = readdirSync(`./components/${folder}`)
+                .filter((file) => file.endsWith(".js"));
             const { buttons, modals } = client;
             switch (folder) {
                 case "buttons":
