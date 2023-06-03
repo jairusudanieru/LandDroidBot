@@ -19,7 +19,7 @@ module.exports = (client) => {
         const rawData = fs.readFileSync(`${__dirname}/../../jsonFiles/youtube.json`);
         const jsonData = JSON.parse(rawData);
 
-        if (jsonData.id !== data.items[0].id) {
+        if (jsonData.id != data.items[0].id) {
             fs.writeFileSync(
                 `${__dirname}/../../jsonFiles/youtube.json`,
                 JSON.stringify({ id: data.items[0].id }, null, 2)

@@ -2,8 +2,8 @@ const {
     PermissionFlagsBits,
     SlashCommandBuilder,
 } = require("discord.js");
-const infoFunction = require("../../commandsFunctions/help/info.js");
-const pingFunction = require("../../commandsFunctions/help/ping.js");
+const infoFunction = require("../../functions/subCommands/help/info.js");
+const pingFunction = require("../../functions/subCommands/help/ping.js");
 
 module.exports = {
     data: new SlashCommandBuilder()

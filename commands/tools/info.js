@@ -2,9 +2,9 @@ const {
     PermissionFlagsBits,
     SlashCommandBuilder,
 } = require("discord.js");
-const botFunction = require("../../commandsFunctions/info/bot.js");
-const memberFunction = require("../../commandsFunctions/info/member.js");
-const serverFunction = require("../../commandsFunctions/info/server.js");
+const botFunction = require("../../functions/subCommands/info/bot.js");
+const memberFunction = require("../../functions/subCommands/info/member.js");
+const serverFunction = require("../../functions/subCommands/info/server.js");
 
 module.exports = {
     data: new SlashCommandBuilder()
