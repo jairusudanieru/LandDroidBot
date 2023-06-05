@@ -20,23 +20,30 @@ module.exports = {
             return;
         }
 
-        if (!haveContentRole) {
-            await interaction.member.roles.add(contentPingRoleId);
+        try {
+            if (!haveContentRole) {
+                await interaction.member.roles.add(contentPingRoleId);
+                await interaction.reply({
+                    content: `Gave you the <@&${contentPingRoleId}> role!`,
+                    ephemeral: true,
+                    allowedMentions: {
+                        parse: [],
+                    },
+                });
+            } else {
+                await interaction.member.roles.remove(contentPingRoleId);
+                await interaction.reply({
+                    content: `Removed the <@&${contentPingRoleId}> role from you!`,
+                    ephemeral: true,
+                    allowedMentions: {
+                        parse: [],
+                    },
+                });
+            }
+        } catch (error) {
             await interaction.reply({
-                content: `Gave you the <@&${contentPingRoleId}> role!`,
+                content: "Sorry, something went wrong. Please report this to the administrator.",
                 ephemeral: true,
-                allowedMentions: {
-                    parse: [],
-                },
-            });
-        } else {
-            await interaction.member.roles.remove(contentPingRoleId);
-            await interaction.reply({
-                content: `Removed the <@&${contentPingRoleId}> role from you!`,
-                ephemeral: true,
-                allowedMentions: {
-                    parse: [],
-                },
             });
         }
     },

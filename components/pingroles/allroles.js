@@ -25,43 +25,50 @@ module.exports = {
             return;
         }
 
-        if (!haveNewsRole && !haveContentRole) {
-            await interaction.member.roles.add(newsPingRoleId);
-            await interaction.member.roles.add(contentPingRoleId);
+        try {
+            if (!haveNewsRole && !haveContentRole) {
+                await interaction.member.roles.add(newsPingRoleId);
+                await interaction.member.roles.add(contentPingRoleId);
+                await interaction.reply({
+                    content: `Gave you the <@&${newsPingRoleId}> and <@&${contentPingRoleId}> roles!`,
+                    ephemeral: true,
+                    allowedMentions: {
+                        parse: [],
+                    },
+                });
+            } else if (haveNewsRole && haveContentRole) {
+                await interaction.member.roles.remove(newsPingRoleId);
+                await interaction.member.roles.remove(contentPingRoleId);
+                await interaction.reply({
+                    content: `Removed the <@&${newsPingRoleId}> and <@&${contentPingRoleId}> roles from you!`,
+                    ephemeral: true,
+                    allowedMentions: {
+                        parse: [],
+                    },
+                });
+            } else if (!haveNewsRole && haveContentRole) {
+                await interaction.member.roles.add(newsPingRoleId);
+                await interaction.reply({
+                    content: `Gave you the <@&${newsPingRoleId}> role!`,
+                    ephemeral: true,
+                    allowedMentions: {
+                        parse: [],
+                    },
+                });
+            } else {
+                await interaction.member.roles.add(contentPingRoleId);
+                await interaction.reply({
+                    content: `Gave you the <@&${contentPingRoleId}> role!`,
+                    ephemeral: true,
+                    allowedMentions: {
+                        parse: [],
+                    },
+                });
+            }
+        } catch (error) {
             await interaction.reply({
-                content: `Gave you the <@&${newsPingRoleId}> and <@&${contentPingRoleId}> roles!`,
+                content: "Sorry, something went wrong. Please report this to the administrator.",
                 ephemeral: true,
-                allowedMentions: {
-                    parse: [],
-                },
-            });
-        } else if (haveNewsRole && haveContentRole) {
-            await interaction.member.roles.remove(newsPingRoleId);
-            await interaction.member.roles.remove(contentPingRoleId);
-            await interaction.reply({
-                content: `Removed the <@&${newsPingRoleId}> and <@&${contentPingRoleId}> roles from you!`,
-                ephemeral: true,
-                allowedMentions: {
-                    parse: [],
-                },
-            });
-        } else if (!haveNewsRole && haveContentRole) {
-            await interaction.member.roles.add(newsPingRoleId);
-            await interaction.reply({
-                content: `Gave you the <@&${newsPingRoleId}> role!`,
-                ephemeral: true,
-                allowedMentions: {
-                    parse: [],
-                },
-            });
-        } else {
-            await interaction.member.roles.add(contentPingRoleId);
-            await interaction.reply({
-                content: `Gave you the <@&${contentPingRoleId}> role!`,
-                ephemeral: true,
-                allowedMentions: {
-                    parse: [],
-                },
             });
         }
     },

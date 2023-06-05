@@ -20,23 +20,30 @@ module.exports = {
             return;
         }
 
-        if (!haveNewsRole) {
-            await interaction.member.roles.add(newsPingRoleId);
+        try {
+            if (!haveNewsRole) {
+                await interaction.member.roles.add(newsPingRoleId);
+                await interaction.reply({
+                    content: `Gave you the <@&${newsPingRoleId}> role!`,
+                    ephemeral: true,
+                    allowedMentions: {
+                        parse: [],
+                    },
+                });
+            } else {
+                await interaction.member.roles.remove(newsPingRoleId);
+                await interaction.reply({
+                    content: `Removed the <@&${newsPingRoleId}> role from you!`,
+                    ephemeral: true,
+                    allowedMentions: {
+                        parse: [],
+                    },
+                });
+            }
+        } catch (error) {
             await interaction.reply({
-                content: `Gave you the <@&${newsPingRoleId}> role!`,
+                content: "Sorry, something went wrong. Please report this to the administrator.",
                 ephemeral: true,
-                allowedMentions: {
-                    parse: [],
-                },
-            });
-        } else {
-            await interaction.member.roles.remove(newsPingRoleId);
-            await interaction.reply({
-                content: `Removed the <@&${newsPingRoleId}> role from you!`,
-                ephemeral: true,
-                allowedMentions: {
-                    parse: [],
-                },
             });
         }
     },
