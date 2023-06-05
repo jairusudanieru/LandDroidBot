@@ -10,16 +10,16 @@ module.exports = {
         .setName("help")
         .setDescription("Get help about my commands")
         .setDefaultMemberPermissions(PermissionFlagsBits.UseApplicationCommands)
-        .addSubcommand(subcommand =>
-            subcommand
-                .setName('info')
-                .setDescription('Help about /info'))
-        .addSubcommand(subcommand =>
-            subcommand
-                .setName('ping')
-                .setDescription('Help about /ping')),
+        .addStringOption(option =>
+            option.setName('command')
+                .setDescription('The command you want')
+                .setRequired(true)
+                .addChoices(
+                    { name: 'info', value: 'info' },
+                    { name: 'ping', value: 'ping' },
+                )),
     async execute(interaction) {
-        const help = interaction.options.getSubcommand()
+        const help = interaction.options.getString('command');
         try {
             switch (help) {
                 case 'info':
