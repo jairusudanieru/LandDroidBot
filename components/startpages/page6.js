@@ -11,10 +11,10 @@ module.exports = {
   },
   async execute(interaction) {
     const embed = new EmbedBuilder()
-      .setImage("https://cdn.discordapp.com/attachments/1012234151769931817/1112753367295467570/hooray.png")
+      .setImage("https://cdn.discordapp.com/attachments/1012234151769931817/1112753344667205642/boostingperks.png")
       .setColor(`#2a2c31`);
     const embed2 = new EmbedBuilder()
-      .setDescription("<:emoji_dot:1044083172784218132>**Hooray... you made it!** \nAgain, welcome to the server! Check <id:customize> to customize your channels and roles, and how about sending a message in the text channels and introduce yourself?")
+      .setDescription("<:emoji_dot:1044083172784218132>**Discord Server Boost** \nBoosting our Discord server not only comes with exclusive perks but also helps our community grow and become even better. By boosting, you'll enjoy special benefits while actively contributing to the overall enhancement of our server. Together, we can create an extraordinary experience for all our members. \n\n<:emoji_dot:1044083172784218132>**Server Boosting Perks** \n⇀ Server booster role given to you by Discord \n⇀ Boost icon in the side of your Display Name \n⇀ Custom server role (name must be appropriate) \n⇀ Shorter cooldown for Land Droid's commands/buttons with cooldown")
       .setColor(`#2a2c31`);
 
     const row = new ActionRowBuilder().setComponents(
@@ -24,10 +24,9 @@ module.exports = {
         .setEmoji("<:emoji_previous:1005026535394250782>")
         .setStyle(ButtonStyle.Secondary),
       new ButtonBuilder()
-        .setCustomId("disabled")
-        .setLabel("Previous Page")
+        .setCustomId("page7")
+        .setLabel("Next Page")
         .setEmoji("<:emoji_next:1005026537789202452>")
-        .setDisabled(true)
         .setStyle(ButtonStyle.Secondary)
     );
 

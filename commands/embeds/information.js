@@ -20,7 +20,7 @@ module.exports = {
 			.setImage(`https://cdn.discordapp.com/attachments/1012234151769931817/1112753350971232296/information.png`)
 			.setColor(`#2a2c31`);
 		const embed2 = new EmbedBuilder()
-			.setDescription(`<:emoji_dot:1044083172784218132>**Welcome to the Server!** \nHey there! We're thrilled to have you join our awesome community. Please take a moment to read through the rules by clicking the "Server Rules" button, and feel free to introduce yourself in the text channels. Don't hesitate to reach out to the moderators if you have any questions. Enjoy your stay! \n\n<:emoji_dot:1044083172784218132>**Server Information** \n<:reply_continue_1:1005018627797434449> Owned by: <@${ownerId}> \n<:reply_continue_3:1005018623716372520> Release Date: ${creationDate}`)
+			.setDescription(`<:emoji_dot:1044083172784218132>**Welcome to the Community!** \nHey there! We're thrilled to have you join our awesome community. Please take a moment to read through the rules by clicking the "Server Rules" button, and feel free to introduce yourself in the text channels. Don't hesitate to reach out to the moderators if you have any questions. Enjoy your stay! \n\n<:emoji_dot:1044083172784218132>**Community Information** \n<:reply_continue_1:1005018627797434449> Managed by: <@${ownerId}> \n<:reply_continue_3:1005018623716372520> Creation Date: ${creationDate}`)
 			.setColor(`#2a2c31`);
 		const row = new ActionRowBuilder().addComponents(
 			new ButtonBuilder()
@@ -29,13 +29,8 @@ module.exports = {
 				.setEmoji("<:emoji_rules:1005004300763811862>")
 				.setStyle(ButtonStyle.Secondary),
 			new ButtonBuilder()
-				.setCustomId("assign")
-				.setLabel("Assign Roles")
-				.setEmoji("<:emoji_paint:1009852243610194021>")
-				.setStyle(ButtonStyle.Secondary),
-			new ButtonBuilder()
 				.setCustomId("start")
-				.setLabel("Get Started")
+				.setLabel("Community Guide")
 				.setEmoji("<:emoji_backpack:1005010361570820096>")
 				.setStyle(ButtonStyle.Secondary)
 		);

@@ -11,30 +11,10 @@ module.exports = {
   },
   async execute(interaction) {
     const embed = new EmbedBuilder()
-      .setImage("https://cdn.discordapp.com/attachments/1012234151769931817/1112753350170136666/creatorsrole.png")
+      .setImage("https://cdn.discordapp.com/attachments/1012234151769931817/1112753352309231750/rolesinfo.png")
       .setColor(`#2a2c31`);
     const embed2 = new EmbedBuilder()
-      .setDescription("<:emoji_dot:1044083172784218132>**Content Creators Role** \n<@&972432001179222036> actively make new contents for their followers. They are Youtubers, Facebook Streamers, Twitch Streamers, and so on. This role can only be obtained if you meet the requirements for Content Creators. \n\n<:emoji_dot:1044083172784218132>**How to get the Content Creator Role?** \nYou must be actively streaming, uploading videos or posting on your page or channel. Share the link of your page or channel in the <#923129486596272140> channel if possible.")
-      .addFields(
-        {
-          name: "**YouTubers:**",
-          value:
-            "⇀ 1,000+ Subscribers\n⇀ 10,000+ Total Views\n⇀ Account Connected to Discord Account",
-          inline: true,
-        },
-        {
-          name: "**Twitch Streamers:**",
-          value:
-            "⇀ Twitch Affiliate\n⇀ 100+ Followers\n⇀ Account Connected to Discord Account",
-          inline: true,
-        },
-        {
-          name: "**Facebook Streamers:**",
-          value:
-            "⇀ Level Up Streamer\n⇀ 100+ Followers\n⇀ If Possible, have Page link in Discord Bio",
-          inline: true,
-        }
-      )
+      .setDescription("<@&925997885957500928> \nThese incredible individuals play a vital role in taking our community to new heights and making it even more enjoyable for everyone. Server Boosters are those generous souls who use Discord Nitro to boost our server. Their support allows us to unlock fantastic perks and features, creating a more vibrant and engaging space for all members. \n\n<@&923042163808407622> \nThey are the members who play on the Minecraft Server called PandesalSMP. They have access to PandesalSMP Channels and the Minecraft Server. This role can only be obtained by filling out the Minecraft form.")
       .setColor(`#2a2c31`);
 
     const row = new ActionRowBuilder().setComponents(

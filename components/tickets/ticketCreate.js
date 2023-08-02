@@ -10,14 +10,13 @@ const { supportCategory, modRoleId } = require("../../jsonFiles/config.json");
 
 module.exports = {
     data: {
-        name: "ticketquestion",
+        name: "ticketcreate",
     },
     async execute(interaction) {
         const usermember = await interaction.guild.members.fetch(interaction.user.id);
         const embed = new EmbedBuilder()
-            .setDescription(`<:emoji_dot:1044083172784218132>**Ticket Created!**\nPlease provide some details while waiting for response. Thank you!`)
+            .setDescription(`<:emoji_dot:1044083172784218132>**Ticket Created!** \nThank you for creating a ticket! We've received your request, and our friendly support team is now working on it. Rest assured, we're investigating your issue carefully. While we do that, you can add more details or context to your ticket channel to help us assist you better.`)
             .setColor("#b9babf")
-            .setFooter({ text: `Category: Ask Questions` });
         const row = new ActionRowBuilder().setComponents(
             new ButtonBuilder()
                 .setCustomId("ticketclose")

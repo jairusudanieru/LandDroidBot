@@ -9,8 +9,8 @@ const {
     guildId,
     voiceCategory,
     createVoiceChannel
-} = require("../../jsonFiles/config.json")
-const fs = require("fs")
+} = require("../../jsonFiles/config.json");
+const fs = require("fs");
 
 module.exports = {
     name: "voiceStateUpdate",

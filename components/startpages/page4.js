@@ -11,10 +11,10 @@ module.exports = {
   },
   async execute(interaction) {
     const embed = new EmbedBuilder()
-      .setImage("https://cdn.discordapp.com/attachments/1012234151769931817/1112753368683782166/supporttickets.png")
+      .setImage("https://cdn.discordapp.com/attachments/1012234151769931817/1112753350170136666/creatorsrole.png")
       .setColor(`#2a2c31`);
     const embed2 = new EmbedBuilder()
-      .setDescription("<:emoji_dot:1044083172784218132>**Create Support Ticket** \nIf you have a problem and need help, just go to <#1006063058885550200> and create a ticket so the moderators can help you. If you create a ticket for no reason, you will be warned. \n\n<:emoji_dot:1044083172784218132>**You can create a ticket...** \n<:reply_continue_1:1005018627797434449> To report a Member \n<:reply_continue_2:1005018625725452299> To report Server Bugs \n<:reply_continue_2:1005018625725452299> To claim your Server Role \n<:reply_continue_3:1005018623716372520> To ask something Important")
+      .setDescription("<:emoji_dot:1044083172784218132>**Content Creators Role** \n<@&972432001179222036> actively make new contents for their followers. They are Youtubers, Facebook Streamers, Twitch Streamers, and so on. This role can only be obtained if you meet the requirements for Content Creators. \n\n<:emoji_dot:1044083172784218132>**How to get the Content Creator Role?** \nYou must be actively streaming, uploading videos or posting on your page or channel. Share the link of your page or channel in the <#923129486596272140> channel if possible.")
       .setColor(`#2a2c31`);
 
     const row = new ActionRowBuilder().setComponents(
