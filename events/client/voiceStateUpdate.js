@@ -62,7 +62,8 @@ module.exports = {
             });
         }
 
-        const values = fs.readFileSync(`${__dirname}"../../jsonFiles/voice.json"`);
+        const path = require("path");
+        const values = fs.readFileSync(path.resolve(__dirname, "../../jsonFiles/voice.json"));
         const list = JSON.parse(values);
         const voiceChannels = list.mainVoiceChannels;
 
