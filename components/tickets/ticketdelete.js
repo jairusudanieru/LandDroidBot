@@ -1,5 +1,6 @@
 const { EmbedBuilder } = require("discord.js");
-const { deletedTicketChannel, modRoleId } = require('../../jsonFiles/config.json');
+const { deletedTicketChannel } = require('../../jsonFiles/config.json');
+const { modRoleId } = require("../../jsonFiles/guild.json");
 
 module.exports = {
     data: {

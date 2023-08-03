@@ -4,7 +4,7 @@ const {
     TextInputBuilder,
     TextInputStyle,
 } = require("discord.js");
-const { boosterRoleId } = require("../../jsonFiles/config.json");
+const { boosterRoleId } = require("../../jsonFiles/guild.json");
 const buttonCooldown = new Set();
 
 module.exports = {

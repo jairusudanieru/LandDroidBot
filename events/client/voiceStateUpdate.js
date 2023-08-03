@@ -5,11 +5,11 @@ const {
     ChannelType,
     PermissionFlagsBits,
 } = require("discord.js");
+const { guildId } = require("../../jsonFiles/config.json");
 const {
-    guildId,
     voiceCategory,
-    createVoiceChannel
-} = require("../../jsonFiles/config.json");
+    createVoiceChannel,
+} = require("../../jsonFiles/voice.json")
 const fs = require("fs");
 
 module.exports = {
@@ -62,7 +62,7 @@ module.exports = {
             });
         }
 
-        const values = fs.readFileSync(`${__dirname}/../../jsonFiles/config.json`);
+        const values = fs.readFileSync(`${__dirname}"../../jsonFiles/voice.json"`);
         const list = JSON.parse(values);
         const voiceChannels = list.mainVoiceChannels;
 

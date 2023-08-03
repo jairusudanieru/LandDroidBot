@@ -9,7 +9,7 @@ const parser = new Parser();
 const fs = require("fs");
 const {
     contentPingRoleId
-} = require("../../jsonFiles/config.json")
+} = require("../../jsonFiles/guild.json")
 
 module.exports = (client) => {
     client.checkVideo = async () => {

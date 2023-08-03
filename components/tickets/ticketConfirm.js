@@ -1,5 +1,5 @@
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
-const { modRoleId } = require('../../jsonFiles/config.json');
+const { modRoleId } = require('../../jsonFiles/guild.json');
 
 module.exports = {
    data: {
