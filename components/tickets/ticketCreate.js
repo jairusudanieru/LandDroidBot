@@ -6,7 +6,7 @@ const {
     EmbedBuilder,
     PermissionFlagsBits,
 } = require("discord.js");
-const { supportCategory } = require("../../jsonFiles/config.json");
+const { supportCategory } = require("../../jsonFiles/guild.json");
 const { modRoleId } = require("../../jsonFiles/guild.json");
 
 module.exports = {
