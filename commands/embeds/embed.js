@@ -2,11 +2,11 @@ const {
    PermissionFlagsBits,
    SlashCommandBuilder,
 } = require("discord.js");
-const boosting = require("../../functions/embeds/boosting.js");
-const information = require("../../functions/embeds/information.js");
-const roles = require("../../functions/embeds/roles.js");
-const rules = require("../../functions/embeds/rules.js");
-const support = require("../../functions/embeds/support.js");
+const boosting = require("../../functions/embeds/discord/boosting.js");
+const information = require("../../functions/embeds/discord/information.js");
+const roles = require("../../functions/embeds/discord/roles.js");
+const rules = require("../../functions/embeds/discord/rules.js");
+const support = require("../../functions/embeds/discord/support.js");
 
 module.exports = {
    data: new SlashCommandBuilder()
