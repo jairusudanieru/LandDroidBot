@@ -3,17 +3,12 @@ const {
    ButtonBuilder,
    ButtonStyle,
    EmbedBuilder,
-   PermissionFlagsBits,
-   SlashCommandBuilder,
 } = require("discord.js");
-const { modRoleId } = require("../../jsonFiles/guild.json");
+const { modRoleId } = require("../../../jsonFiles/guild.json");
 
 module.exports = {
-   data: new SlashCommandBuilder()
-      .setName("rules")
-      .setDescription("The Rules Embed")
-      .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
-      .setDMPermission(false),
+   name: "rules",
+   description: "The Rules Embed",
    async execute(interaction) {
       const embed = new EmbedBuilder()
          .setImage(`https://cdn.discordapp.com/attachments/1012234151769931817/1112753353605267567/serverrules.png`)
@@ -46,4 +41,4 @@ module.exports = {
          });
       }
    },
-};
+}

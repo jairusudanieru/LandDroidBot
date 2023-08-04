@@ -1,15 +1,8 @@
-const {
-   EmbedBuilder,
-   PermissionFlagsBits,
-   SlashCommandBuilder,
-} = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
-   data: new SlashCommandBuilder()
-      .setName("roles")
-      .setDescription("The Roles Embed")
-      .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
-      .setDMPermission(false),
+   name: "roles",
+   description: "The Roles Embed",
    async execute(interaction) {
       const embed = new EmbedBuilder()
          .setImage("https://cdn.discordapp.com/attachments/1012234151769931817/1112753352309231750/rolesinfo.png")
@@ -29,7 +22,7 @@ module.exports = {
 
       try {
          await interaction.channel.send({
-            embeds: [embed, embed2, embed3, embed4, embed5],
+            embeds: [embed, embed2, embed3, embed4, embed5]
          });
          await interaction.deferReply();
          await interaction.deleteReply();
@@ -40,4 +33,4 @@ module.exports = {
          });
       }
    },
-};
+}

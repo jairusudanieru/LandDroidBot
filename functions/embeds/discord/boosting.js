@@ -1,15 +1,8 @@
-const {
-   EmbedBuilder,
-   PermissionFlagsBits,
-   SlashCommandBuilder,
-} = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
-   data: new SlashCommandBuilder()
-      .setName("boosting")
-      .setDescription("The Boosting Embed")
-      .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
-      .setDMPermission(false),
+   name: "boosting",
+   description: "The Boosting Embed",
    async execute(interaction) {
       const embed = new EmbedBuilder()
          .setImage("https://cdn.discordapp.com/attachments/1012234151769931817/1112753344667205642/boostingperks.png")
@@ -31,4 +24,4 @@ module.exports = {
          });
       }
    },
-};
+}
