@@ -11,7 +11,7 @@ module.exports = {
       const embed = new EmbedBuilder()
          .setDescription(`<:emoji_dot:1044083172784218132>**Bot Name:** ${botMember.displayName} \n<:emoji_dot:1044083172784218132>**Bot Ping:** ${client.ws.ping}ms \n<:emoji_dot:1044083172784218132>**Language:** JavaScript \n<:emoji_dot:1044083172784218132>**Joined at:** ${joinedDate} \n<:emoji_dot:1044083172784218132>**Created at:** ${creationDate} \n<:emoji_dot:1044083172784218132>**Source Code:** [GitHub Repository](https://github.com/jairusudanieru/LandDroidBot)`)
          .setThumbnail(memberAvatar)
-         .setColor(`#2a2c31`);
+         .setColor(`#2b2d31`);
 
       try {
          await interaction.reply({

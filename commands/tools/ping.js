@@ -15,7 +15,7 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setAuthor({ name: `${client.user.tag}`, iconURL: `${botAvatar}` })
             .setDescription(`<:emoji_dot:1044083172784218132>**Websocket heartbeat:** ${ping}`)
-            .setColor(`#2a2c31`);
+            .setColor(`#2b2d31`);
 
         try {
             await interaction.reply({

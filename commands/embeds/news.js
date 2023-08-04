@@ -30,7 +30,7 @@ module.exports = {
       const embed = new EmbedBuilder()
          .setDescription(`<:emoji_dot:1044083172784218132>**${title}** \n${description}`)
          .setImage(image.url)
-         .setColor(`#2a2c31`);
+         .setColor(`#2b2d31`);
 
       try {
          await interaction.channel.send({

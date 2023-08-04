@@ -12,10 +12,10 @@ module.exports = {
   async execute(interaction) {
     const embed = new EmbedBuilder()
       .setImage("https://cdn.discordapp.com/attachments/1012234151769931817/1112753367295467570/hooray.png")
-      .setColor(`#2a2c31`);
+      .setColor(`#2b2d31`);
     const embed2 = new EmbedBuilder()
       .setDescription("<:emoji_dot:1044083172784218132>**Hooray... you made it!** \nAgain, welcome to the server! Check <id:customize> to customize your channels and roles, and how about sending a message in the text channels and introduce yourself?")
-      .setColor(`#2a2c31`);
+      .setColor(`#2b2d31`);
 
     const row = new ActionRowBuilder().setComponents(
       new ButtonBuilder()

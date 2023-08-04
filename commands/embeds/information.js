@@ -18,10 +18,10 @@ module.exports = {
 		const creationDate = `<t:${Math.floor(interaction.guild.createdTimestamp / 1000)}:D>`
 		const embed = new EmbedBuilder()
 			.setImage(`https://cdn.discordapp.com/attachments/1012234151769931817/1112753350971232296/information.png`)
-			.setColor(`#2a2c31`);
+			.setColor(`#2b2d31`);
 		const embed2 = new EmbedBuilder()
 			.setDescription(`<:emoji_dot:1044083172784218132>**Welcome to the Community!** \nHey there! We're thrilled to have you join our awesome community. Please take a moment to read through the rules by clicking the "Server Rules" button, and feel free to introduce yourself in the text channels. Don't hesitate to reach out to the moderators if you have any questions. Enjoy your stay! \n\n<:emoji_dot:1044083172784218132>**Community Information** \n<:reply_continue_1:1005018627797434449> Managed by: <@${ownerId}> \n<:reply_continue_3:1005018623716372520> Creation Date: ${creationDate}`)
-			.setColor(`#2a2c31`);
+			.setColor(`#2b2d31`);
 		const row = new ActionRowBuilder().addComponents(
 			new ButtonBuilder()
 				.setCustomId("rules")

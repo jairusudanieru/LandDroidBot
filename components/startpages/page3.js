@@ -12,10 +12,10 @@ module.exports = {
   async execute(interaction) {
     const embed = new EmbedBuilder()
       .setImage("https://cdn.discordapp.com/attachments/1012234151769931817/1112753352309231750/rolesinfo.png")
-      .setColor(`#2a2c31`);
+      .setColor(`#2b2d31`);
     const embed2 = new EmbedBuilder()
       .setDescription("<@&925997885957500928> \nThese incredible individuals play a vital role in taking our community to new heights and making it even more enjoyable for everyone. Server Boosters are those generous souls who use Discord Nitro to boost our server. Their support allows us to unlock fantastic perks and features, creating a more vibrant and engaging space for all members. \n\n<@&923042163808407622> \nThey are the members who play on the Minecraft Server called PandesalSMP. They have access to PandesalSMP Channels and the Minecraft Server. This role can only be obtained by filling out the Minecraft form.")
-      .setColor(`#2a2c31`);
+      .setColor(`#2b2d31`);
 
     const row = new ActionRowBuilder().setComponents(
       new ButtonBuilder()

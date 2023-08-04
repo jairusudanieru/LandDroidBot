@@ -6,7 +6,7 @@ module.exports = {
    async execute(interaction) {
       const embed = new EmbedBuilder()
          .setDescription(`<:emoji_dot:1044083172784218132>**Info Command**\nThis command displays the information about the given subject.`)
-         .setColor(`#2a2c31`);
+         .setColor(`#2b2d31`);
 
       try {
          await interaction.reply({

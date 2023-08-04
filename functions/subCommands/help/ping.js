@@ -6,7 +6,7 @@ module.exports = {
    async execute(interaction) {
       const embed = new EmbedBuilder()
          .setDescription(`<:emoji_dot:1044083172784218132>**Ping Command**\nThis command displays Land Droid's Current Ping.`)
-         .setColor(`#2a2c31`);
+         .setColor(`#2b2d31`);
 
       try {
          await interaction.reply({

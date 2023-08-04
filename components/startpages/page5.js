@@ -12,10 +12,10 @@ module.exports = {
   async execute(interaction) {
     const embed = new EmbedBuilder()
       .setImage("https://cdn.discordapp.com/attachments/1012234151769931817/1112753368683782166/supporttickets.png")
-      .setColor(`#2a2c31`);
+      .setColor(`#2b2d31`);
     const embed2 = new EmbedBuilder()
       .setDescription("<:emoji_dot:1044083172784218132>**Create Support Ticket** \nIf you need help, have a problem you want to solve, or just want to talk to our friendly support team, you've come to the right spot! We have a simple and effective ticket system in place to ensure that your questions and concerns get the attention they deserve.")
-      .setColor(`#2a2c31`);
+      .setColor(`#2b2d31`);
 
     const row = new ActionRowBuilder().setComponents(
       new ButtonBuilder()
