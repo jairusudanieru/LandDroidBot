@@ -23,7 +23,7 @@ module.exports = {
                { name: 'rules', value: 'rules' },
                { name: 'support', value: 'support' },
                { name: 'form', value: 'form' },
-               { name: 'info', value: 'info' },
+               { name: 'pandesal', value: 'pandesal' },
             ))
       .setDMPermission(false),
    async execute(interaction) {
@@ -48,8 +48,8 @@ module.exports = {
             case 'form':
                await functions.form.execute(interaction);
                break;
-            case 'info':
-               await functions.info.execute(interaction);
+            case 'pandesal':
+               await functions.pandesal.execute(interaction);
                break;
          }
       } catch (error) {
