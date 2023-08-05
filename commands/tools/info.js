@@ -27,26 +27,18 @@ module.exports = {
     async execute(interaction, client) {
         const info = interaction.options.getSubcommand();
         const user = interaction.options.getUser("user");
-        try {
-            switch (info) {
-                case 'bot':
-                    await botFunction.execute(interaction, client);
-                    break;
-                case 'member':
-                    await memberFunction.execute(interaction, user);
-                    break;
-                case 'server':
-                    await serverFunction.execute(interaction);
-                    break;
-                default:
-                    break;
-            }
-        } catch (error) {
-            await console.error(error);
-            await interaction.reply({
-                content: "Sorry, something went wrong. Please report this to the administrator.",
-                ephemeral: true,
-            });
+        switch (info) {
+            case 'bot':
+                await botFunction.execute(interaction, client);
+                break;
+            case 'member':
+                await memberFunction.execute(interaction, user);
+                break;
+            case 'server':
+                await serverFunction.execute(interaction);
+                break;
+            default:
+                break;
         }
     },
 };

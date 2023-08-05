@@ -2,11 +2,10 @@ const {
    PermissionFlagsBits,
    SlashCommandBuilder,
 } = require("discord.js");
-const boosting = require("../../functions/embeds/discord/boosting.js");
-const information = require("../../functions/embeds/discord/information.js");
-const roles = require("../../functions/embeds/discord/roles.js");
-const rules = require("../../functions/embeds/discord/rules.js");
-const support = require("../../functions/embeds/discord/support.js");
+const path = require('path');
+const functionLoader = require('../../loaders/functionLoader');
+const functionsFolder = path.join(__dirname, '..', '..', 'functions/embeds/discord');
+const functions = functionLoader(functionsFolder);
 
 module.exports = {
    data: new SlashCommandBuilder()
@@ -27,22 +26,26 @@ module.exports = {
       .setDMPermission(false),
    async execute(interaction) {
       const embed = interaction.options.getString('embed');
-      switch (embed) {
-         case 'boosting':
-            await boosting.execute(interaction);
-            break;
-         case 'information':
-            await information.execute(interaction);
-            break;
-         case 'roles':
-            await roles.execute(interaction);
-            break;
-         case 'rules':
-            await rules.execute(interaction);
-            break;
-         case 'support':
-            await support.execute(interaction);
-            break;
+      try {
+         switch (embed) {
+            case 'boosting':
+               await functions.boosting.execute(interaction);
+               break;
+            case 'information':
+               await functions.information.execute(interaction);
+               break;
+            case 'roles':
+               await functions.roles.execute(interaction);
+               break;
+            case 'rules':
+               await functions.rules.execute(interaction);
+               break;
+            case 'support':
+               await functions.support.execute(interaction);
+               break;
+         }
+      } catch (error) {
+         console.log(error);
       }
    }
 }

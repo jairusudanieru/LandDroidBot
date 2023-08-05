@@ -20,22 +20,15 @@ module.exports = {
                 )),
     async execute(interaction) {
         const help = interaction.options.getString('command');
-        try {
-            switch (help) {
-                case 'info':
-                    await infoFunction.execute(interaction);
-                    break;
-                case 'ping':
-                    await pingFunction.execute(interaction);
-                    break;
-                default:
-                    break;
-            }
-        } catch (error) {
-            await interaction.reply({
-                content: "Sorry, something went wrong. Please report this to the administrator.",
-                ephemeral: true,
-            });
+        switch (help) {
+            case 'info':
+                await infoFunction.execute(interaction);
+                break;
+            case 'ping':
+                await pingFunction.execute(interaction);
+                break;
+            default:
+                break;
         }
     },
 };
