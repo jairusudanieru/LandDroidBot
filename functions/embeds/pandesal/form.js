@@ -18,7 +18,7 @@ module.exports = {
       const row = new ActionRowBuilder().addComponents(
          new ButtonBuilder()
             .setLabel("Server Rules")
-            .setCustomId("rules")
+            .setCustomId("pandesalrules")
             .setEmoji("<:emoji_rules:1005004300763811862>")
             .setStyle(ButtonStyle.Secondary),
          new ButtonBuilder()

@@ -17,7 +17,7 @@ module.exports = {
          .setColor(`#2b2d31`);
       const row = new ActionRowBuilder().addComponents(
          new ButtonBuilder()
-            .setCustomId("rules")
+            .setCustomId("pandesalrules")
             .setLabel("Server Rules")
             .setEmoji("<:emoji_rules:1005004300763811862>")
             .setStyle(ButtonStyle.Secondary),
