@@ -2,9 +2,10 @@ const {
     PermissionFlagsBits,
     SlashCommandBuilder,
 } = require("discord.js");
-const botFunction = require("../../functions/subCommands/info/bot.js");
-const memberFunction = require("../../functions/subCommands/info/member.js");
-const serverFunction = require("../../functions/subCommands/info/server.js");
+const path = require('path');
+const functionLoader = require('../../loaders/functionLoader');
+const functionsFolder = path.join(__dirname, '..', '..', 'functions/subCommands/info');
+const functions = functionLoader(functionsFolder);
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -29,13 +30,13 @@ module.exports = {
         const user = interaction.options.getUser("user");
         switch (info) {
             case 'bot':
-                await botFunction.execute(interaction, client);
+                await functions.bot.execute(interaction, client);
                 break;
             case 'member':
-                await memberFunction.execute(interaction, user);
+                await functions.member.execute(interaction, user);
                 break;
             case 'server':
-                await serverFunction.execute(interaction);
+                await functions.server.execute(interaction);
                 break;
             default:
                 break;

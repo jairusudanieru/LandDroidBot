@@ -2,8 +2,10 @@ const {
     PermissionFlagsBits,
     SlashCommandBuilder,
 } = require("discord.js");
-const infoFunction = require("../../functions/subCommands/help/info.js");
-const pingFunction = require("../../functions/subCommands/help/ping.js");
+const path = require('path');
+const functionLoader = require('../../loaders/functionLoader');
+const functionsFolder = path.join(__dirname, '..', '..', 'functions/subCommands/help');
+const functions = functionLoader(functionsFolder);
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -22,10 +24,10 @@ module.exports = {
         const help = interaction.options.getString('command');
         switch (help) {
             case 'info':
-                await infoFunction.execute(interaction);
+                await functions.info.execute(interaction);
                 break;
             case 'ping':
-                await pingFunction.execute(interaction);
+                await functions.ping.execute(interaction);
                 break;
             default:
                 break;
