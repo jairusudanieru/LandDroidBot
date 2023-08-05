@@ -3,9 +3,9 @@ const {
    SlashCommandBuilder,
 } = require("discord.js");
 const path = require('path');
-const functionLoader = require('../../loaders/functionLoader');
-const functionsFolder = path.join(__dirname, '..', '..', 'functions/embeds/discord');
-const functions = functionLoader(functionsFolder);
+const functionLoader = require('../../loaders/functionLoader.js');
+const embedsFolder = path.join(__dirname, '..', '..', '/functions/embeds');
+const functions = functionLoader(embedsFolder);
 
 module.exports = {
    data: new SlashCommandBuilder()
@@ -22,6 +22,8 @@ module.exports = {
                { name: 'roles', value: 'roles' },
                { name: 'rules', value: 'rules' },
                { name: 'support', value: 'support' },
+               { name: 'form', value: 'form' },
+               { name: 'info', value: 'info' },
             ))
       .setDMPermission(false),
    async execute(interaction) {
@@ -42,6 +44,12 @@ module.exports = {
                break;
             case 'support':
                await functions.support.execute(interaction);
+               break;
+            case 'form':
+               await functions.form.execute(interaction);
+               break;
+            case 'info':
+               await functions.info.execute(interaction);
                break;
          }
       } catch (error) {
