@@ -11,7 +11,7 @@ module.exports = {
   },
   async execute(interaction) {
     const embed = new EmbedBuilder()
-      .setImage("https://cdn.discordapp.com/attachments/1012234151769931817/1112753350170136666/creatorsrole.png")
+      .setImage("https://cdn.discordapp.com/attachments/1012234151769931817/1144985702526894181/creatorsrole.png")
       .setColor(`#2b2d31`);
     const embed2 = new EmbedBuilder()
       .setDescription("<:emoji_dot:1044083172784218132>**Content Creators Role** \n<@&972432001179222036> actively make new contents for their followers. They are Youtubers, Facebook Streamers, Twitch Streamers, and so on. This role can only be obtained if you meet the requirements for Content Creators. \n\n<:emoji_dot:1044083172784218132>**How to get the Content Creator Role?** \nYou must be actively streaming, uploading videos or posting on your page or channel. Share the link of your page or channel in the <#923129486596272140> channel if possible.")

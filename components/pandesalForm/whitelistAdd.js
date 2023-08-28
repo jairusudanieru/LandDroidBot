@@ -31,7 +31,7 @@ module.exports = {
       try {
          await player.roles.add(smpRoleId);
          await channel.send({
-            content: `Welcome to PandesalSMP, <@${userId}>!`
+            content: `- <@${userId}> joined Pandesal SMP`
          });
          await interaction.update({
             components: [row]

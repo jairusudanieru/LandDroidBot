@@ -37,6 +37,12 @@ module.exports = (client) => {
                         buttons.set(str.data.name, str);
                     }
                     break;
+                case "pandesalForm":
+                    for (const file of componentFiles) {
+                        const str = require(`../../components/${folder}/${file}`)
+                        buttons.set(str.data.name, str);
+                    }
+                    break;
                 default:
                     break;
             }

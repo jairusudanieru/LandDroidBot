@@ -1,10 +1,3 @@
-const {
-  ActionRowBuilder,
-  ButtonBuilder,
-  ButtonStyle,
-  EmbedBuilder,
-} = require("discord.js");
-
 module.exports = {
   data: {
     name: `userlimit`,

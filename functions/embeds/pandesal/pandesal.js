@@ -6,15 +6,15 @@ const {
 } = require("discord.js");
 
 module.exports = {
-   name: "info",
-   description: "The Info Embed",
+   name: "pandesal",
+   description: "The Pandesal Embed",
    async execute(interaction) {
       const embed = new EmbedBuilder()
-         .setImage("https://cdn.discordapp.com/attachments/1012234151769931817/1114782066316419112/pandesalinfo.png")
-         .setColor(`#2b2d31`);
+         .setImage("https://cdn.discordapp.com/attachments/1012234151769931817/1144985770864681031/pandesalinfo.png")
+         .setColor("#2b2d31");
       const embed2 = new EmbedBuilder()
          .setDescription("<:emoji_dot:1044083172784218132>**Welcome to Pandesal SMP** \nThis Category is for PandesalSMP members only, where you can communicate even without playing Minecraft. This is also for updates, news and announcements related to the Minecraft SMP. \n\n<:emoji_dot:1044083172784218132>**Minecraft Server Details** \n<:reply_continue_1:1005018627797434449> Cross-platform (Geyser Plugin) \n<:reply_continue_2:1005018625725452299> Whitelisted semi-vanilla server \n<:reply_continue_3:1005018623716372520> Minecraft Java Version (1.19+)")
-         .setColor(`#2b2d31`);
+         .setColor("#2b2d31");
       const row = new ActionRowBuilder().addComponents(
          new ButtonBuilder()
             .setCustomId("pandesalrules")

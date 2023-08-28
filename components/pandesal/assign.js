@@ -12,7 +12,7 @@ module.exports = {
     },
     async execute(interaction) {
         const embed = new EmbedBuilder()
-            .setImage(`https://cdn.discordapp.com/attachments/1012234151769931817/1112753369442943036/updatesping.png`)
+            .setImage(`https://cdn.discordapp.com/attachments/1012234151769931817/1144985865161023589/updatesping.png`)
             .setColor(`#2b2d31`);
         const embed2 = new EmbedBuilder()
             .setDescription(`<:emoji_dot:1044083172784218132>**Updates Ping Role** \nIf you want to be notified whenever there are updates to the server, please click the button to be given the <@&${updatesRoleId}> Role. Just press the button again if you want to remove the role.`)

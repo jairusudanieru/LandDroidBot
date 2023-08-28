@@ -11,7 +11,7 @@ module.exports = {
   },
   async execute(interaction) {
     const embed = new EmbedBuilder()
-      .setImage("https://cdn.discordapp.com/attachments/1012234151769931817/1112753352309231750/rolesinfo.png")
+      .setImage("https://cdn.discordapp.com/attachments/1012234151769931817/1144985787025334292/rolesinfo.png")
       .setColor(`#2b2d31`);
     const embed2 = new EmbedBuilder()
       .setDescription("<@&987331184415629402> \nIn addition to our custom bots, we have a collection of other helpful Discord bots that enrich your experience within our community. These bots are carefully selected to provide a wide range of functionalities, from music and entertainment to utility and moderation. \n\n<@&972887345697284227> \nThey are the supporters of Jairusu's Facebook page. You can obtain this role by becoming a Facebook supporter. If Jairusu's YouTube Channel offers a membership, you can also obtain the role there by becoming a member.")

@@ -10,7 +10,7 @@ module.exports = {
    description: "The Support Embed",
    async execute(interaction) {
       const embed = new EmbedBuilder()
-         .setImage("https://cdn.discordapp.com/attachments/1012234151769931817/1112753349578735736/createtickets.png")
+         .setImage("https://cdn.discordapp.com/attachments/1012234151769931817/1144985683929337886/createtickets.png")
          .setColor(`#2b2d31`);
       const embed2 = new EmbedBuilder()
          .setDescription(`**<:emoji_dot:1044083172784218132>Create Support Ticket** \nIf you need help, have a problem you want to solve, or just want to talk to our friendly support team, you've come to the right spot! We have a simple and effective ticket system in place to ensure that your questions and concerns get the attention they deserve.`)
