@@ -11,24 +11,42 @@ module.exports = {
       .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
       .setDMPermission(false)
       .addStringOption(option =>
-         option.setName('contents')
-            .setDescription("The contents of the update")
+         option.setName('message')
+            .setDescription("The messageId of the update")
             .setRequired(true))
+      .addStringOption(option =>
+         option.setName('contents')
+            .setDescription("The contents of the update"))
       .addAttachmentOption(option =>
          option.setName('image')
-            .setDescription("The image of the update")
-            .setRequired(true)),
+            .setDescription("The image of the update")),
    async execute(interaction) {
-      var contents = interaction.options.getString('contents');
-      contents = contents.replaceAll("\\n", "\n");
-      const image = interaction.options.getAttachment('image');
-      const embed = new EmbedBuilder()
-         .setDescription(contents)
-         .setImage(image.url)
-         .setColor(`#2b2d31`);
+      var contents = interaction.options?.getString('contents');
+      if (contents != null) contents = contents.replaceAll("\\n", "\n");
+      const messageId = interaction.options.getString('message');
+      const image = interaction.options?.getAttachment('image');
+      var embed = new EmbedBuilder()
 
       try {
-         const message = await interaction.channel.messages.fetch("1116047030129790987")
+         const message = await interaction.channel.messages.fetch(messageId);
+         const embedImage = await message.embeds[0]?.image.url;
+         const embedContent = await message.embeds[0]?.description;
+         if (image == null && contents != null) {
+            embed = new EmbedBuilder()
+               .setDescription(contents)
+               .setImage(embedImage)
+               .setColor(`#2b2d31`);
+         } else if (image != null && contents == null) {
+            embed = new EmbedBuilder()
+               .setDescription(embedContent)
+               .setImage(image.url)
+               .setColor(`#2b2d31`);
+         } else {
+            embed = new EmbedBuilder()
+               .setDescription(contents)
+               .setImage(image.url)
+               .setColor(`#2b2d31`);
+         }
          await message.edit({
             embeds: [embed]
          })
